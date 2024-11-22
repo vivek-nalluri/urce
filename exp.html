@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="login.css">
+    <title>Changing Background Color with Linear Gradient</title>
+</head>
+<body id="color-box">
+
+    <script>
+        function login() {
+            let a=document.getElementById("card");
+            a.style.transform="rotateY(180deg)";
+            let b=document.getElementById("login-btn");
+            b.style.display="none";
+            let c=document.getElementById("signin-btn");
+            c.style.display="block";
+        }
+        function sign() {
+            let a=document.getElementById("card");
+            a.style.transform="rotateY(0deg)";
+            let b=document.getElementById("signin-btn");
+            b.style.display="none";
+            let c=document.getElementById("login-btn");
+            c.style.display="block";
+        }
+    </script>
+    <section id="login">
+        <button onclick="sign()" id="signin-btn">Sign-in</button>
+        <button onclick="login()" id="login-btn">Login</button>
+            <div class="c">
+                <div id="card">
+                    <div id="front">
+                        <h1>Sign Up</h1><br>
+                        <center>
+                        <table>
+                            <tr>
+                                <td><label for="User-Name">First-Name</label></td>
+                                <td><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="User-Name">Last-Name</label></td>
+                                <td><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="password">Password</label></td>
+                                <td><input type="password" name="" id=""></td>
+                            </tr>
+                            <tr>
+                                <td><label for="password">Re-Password</label></td>
+                                <td><input type="password" name="" id=""></td>
+                            </tr>
+                        </table>
+                        </center>
+                    </div>
+                    <div id="back">
+                        <h1>Login</h1><br>
+                        <center>
+                        <table>
+                            <tr>
+                                <td><label for="User-Name">User-Name</label></td>
+                                <td><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="password">Password</label></td>
+                                <td><input type="password" name="" id=""></td>
+                            </tr>
+                        </table>
+                        </center>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <script>
+        function changeBackgroundColor() {
+            var colorBox=document.getElementById("color-box");
+            var colors=["#000000","#272626"]; // Array of colors
+            var currentIndex=0;
+
+            setInterval(function() {
+                var startColor=colors[currentIndex]; // Get the current start color
+                currentIndex=(currentIndex+1)%colors.length; // Move to the next color
+                var endColor=colors[currentIndex]; // Get the next end color
+                var gradient="linear-gradient(to right, "+startColor+", "+endColor+")";
+                colorBox.style.background=gradient; // Set the linear gradient
+            },2000); // Change every 2 seconds
+        }
+
+        changeBackgroundColor();
+    </script>
+</body>
+
+</html>
